@@ -8,7 +8,7 @@ from resources.item import Item, ItemList
 
 
 
-
+print("first api running")
 
 #JWT : Json Web Token
 app = Flask(__name__)
