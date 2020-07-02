@@ -5,6 +5,7 @@ from security import authenticate, identity
 from resources.user import UserRegister
 from resources.store import Store, StoreList
 from resources.item import Item, ItemList
+import os
 
 
 
@@ -13,7 +14,7 @@ print("first api running")
 #JWT : Json Web Token
 app = Flask(__name__)
 app.secret_key = 'mySecretKey'
-app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///api.db'
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL','sqlite:///api.db')
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False # 
 api = Api(app)
 
